@@ -279,6 +279,102 @@
 
 
   
+    <article id="post-从0开始搭建hexo个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="准备工作-以下为在MAC-BOOK下操作为例"><a href="#准备工作-以下为在MAC-BOOK下操作为例" class="headerlink" title="准备工作(以下为在MAC BOOK下操作为例)"></a>准备工作(以下为在MAC BOOK下操作为例)</h1><h2 id="安装git和nodejs"><a href="#安装git和nodejs" class="headerlink" title="安装git和nodejs"></a>安装git和nodejs</h2><h4 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h4><hr>
+<h4 id="node的安装-以下安装步骤最好用管理员身份执行sudo-su"><a href="#node的安装-以下安装步骤最好用管理员身份执行sudo-su" class="headerlink" title="node的安装(以下安装步骤最好用管理员身份执行sudo su)"></a>node的安装(以下安装步骤最好用管理员身份执行sudo su)</h4><ul>
+<li><p>官网： <a target="_blank" rel="noopener" href="https://nodejs.org/">https://nodejs.org</a> 下载并安装</p>
+<p>  安装目录：/usr/local/bin</p>
+<p>  检查是否安装成功：</p>
+<p>  node -v; npm -v</p>
+</li>
+<li><p>npm是node安装包管理器，因为源在国外，安装包时通常很慢，所以要使用中国源，安装cnpm</p>
+<p>  npm install -g cnpm –regristry=<a target="_blank" rel="noopener" href="https://regristry.npm.taobao.org(此处为org,参考https//developer.aliyun.com/mirror/NPM)">https://regristry.npm.taobao.org(此处为org,参考https://developer.aliyun.com/mirror/NPM)</a></p>
+</li>
+</ul>
+<h4 id="安装好cnpm后就可以安装博客软件hexo了-以下安装步骤最好用管理员身份执行sudo-su"><a href="#安装好cnpm后就可以安装博客软件hexo了-以下安装步骤最好用管理员身份执行sudo-su" class="headerlink" title="安装好cnpm后就可以安装博客软件hexo了(以下安装步骤最好用管理员身份执行sudo su)"></a>安装好cnpm后就可以安装博客软件hexo了(以下安装步骤最好用管理员身份执行sudo su)</h4><p>cnpm install -g hexo</p>
+<p>检查是否安装成功：</p>
+<p>hexo -v</p>
+<h2 id="创建博客应用-以下步骤使用普通用户身份"><a href="#创建博客应用-以下步骤使用普通用户身份" class="headerlink" title="创建博客应用(以下步骤使用普通用户身份)"></a>创建博客应用(以下步骤使用普通用户身份)</h2><ul>
+<li><p>创建blog文件夹</p>
+<p>  mkdir blog</p>
+<p>  cd blog</p>
+</li>
+<li><p>初始化hexo</p>
+<p>  hexo init</p>
+</li>
+<li><p>运行hexo</p>
+<p>  hexo s</p>
+<p>  用浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 发现博客已经运行起来了</p>
+</li>
+</ul>
+<h2 id="编写第一篇博客文章"><a href="#编写第一篇博客文章" class="headerlink" title="编写第一篇博客文章"></a>编写第一篇博客文章</h2><ul>
+<li><p>进入source/_posts目录，编辑一个后缀名为md的新文件，采用markdown的格式编辑该文件内容，此文件就是新的一篇博客内容</p>
+</li>
+<li><p>退出编辑后，使用hexo clean清除一下，再使用hexo g重新生成博客，hexo s启动博客应用，就可以现实最新的博客页面</p>
+</li>
+</ul>
+<h2 id="将个人博客部署到github"><a href="#将个人博客部署到github" class="headerlink" title="将个人博客部署到github"></a>将个人博客部署到github</h2><p>编辑_config.yml文件，移动到文件末尾，deploy部分修改为以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: &#39;git&#39;</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;yourID&#x2F;yourID.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>并执行以下命令：</p>
+<p>cnpm install –save hexo-deployer-git</p>
+<p>hexo d</p>
+<p>过程中输入github账号和密码，则部署完成</p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>安装litten用户开发的主题yilia</p>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia.git">https://github.com/litten/hexo-theme-yilia.git</a> themes/yilia</p>
+<p>修改_config.yml文件中的</p>
+<p>themes=yilia</p>
+<p>保存退出</p>
+<p>hexo clean</p>
+<p>hexo g</p>
+<p>hexo d</p>
+<p>最后在浏览器输入 <a target="_blank" rel="noopener" href="https://tomyy0531.github.io/">https://tomyy0531.github.io</a> 查看博客是否部署成功。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/08/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAhexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
